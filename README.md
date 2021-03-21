@@ -1,2 +1,4 @@
 # Automation_Assessment_S2_PostmanNewman
-Automation Assessment 2 - Postman Newman
+
+Moises Perez - moyperez@gmail.com
+Assessment Session  2: Test Scenarios Automated by using Postman Newman
