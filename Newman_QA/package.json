@@ -1,0 +1,16 @@
+{
+  "name": "newman_qa",
+  "version": "1.0.0",
+  "description": "PostMan Newman automation project - Wizeline QA",
+  "main": "index.js",
+  "scripts": {
+    "testReduced": "npx newman run './PostNewManProject/backEnd/collections/Reduced.postman_collection.json' -e './PostNewManProject/backEnd/envVar/QA.postman_environment.json' -r htmlextra --reporter-htmlextra-export './PostNewManProject/reports/run_report_reduced_API.html'",
+    "testFullAPI": "npx newman run './PostNewManProject/backEnd/collections/Todoist.postman_collection.json' -e './PostNewManProject/backEnd/envVar/QA.postman_environment.json' -r htmlextra --reporter-htmlextra-export './PostNewManProject/reports/run_report_full_API.html'"
+  },
+  "author": "Moises Perez",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^5.2.2",
+    "newman-reporter-htmlextra": "^1.20.1"
+  }
+}

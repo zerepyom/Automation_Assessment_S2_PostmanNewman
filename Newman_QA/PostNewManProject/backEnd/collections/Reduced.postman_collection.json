@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "0be0a8c0-2c4e-417d-a73a-8786e84d61c0",
+		"name": "Todoist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Get active  tasks",
+					"item": [
+						{
+							"name": "Get active tasks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is Sucess\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Content-Type header is returned\", () => {\r",
+											"    pm.response.to.have.header(\"Content-Type\")\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Content-Type header returned is application/json\", () => {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response have a valid json structure\", function () {\r",
+											"    pm.response.to.be.json\r",
+											"});\r",
+											"\r",
+											"pm.test(\"No error on JSON body\", function () { \r",
+											"    pm.response.to.not.be.error  \r",
+											"    pm.response.to.not.have.jsonBody(\"error\")\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseURL}}",
+									"host": [
+										"{{baseURL}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create a  new Task",
+					"item": [
+						{
+							"name": "Create a new task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is Sucess\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Content-Type header is returned\", () => {\r",
+											"    pm.response.to.have.header(\"Content-Type\")\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Content-Type header returned is application/json\", () => {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response have a valid json structure\", function () {\r",
+											"    pm.response.to.be.json\r",
+											"});\r",
+											"\r",
+											"pm.test(\"No error on JSON body\", function () { \r",
+											"    pm.response.to.not.be.error  \r",
+											"    pm.response.to.not.have.jsonBody(\"error\")\r",
+											"});\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"taskId\", jsonData.id);\r",
+											"console.log(\"TaskId:\",jsonData.id)\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-Id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"content\": \"Prepare Cofee\",\r\n\"due_string\": \"Today at 16:00\",\r\n\"due_lang\": \"en\",\r\n\"priority\": 1\r\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}",
+									"host": [
+										"{{baseURL}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get an active task",
+					"item": [
+						{
+							"name": "Get an active task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is Sucess\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Content-Type header is returned\", () => {\r",
+											"    pm.response.to.have.header(\"Content-Type\")\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Content-Type header returned is application/json\", () => {\r",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response have a valid json structure\", function () {\r",
+											"    pm.response.to.be.json\r",
+											"});\r",
+											"\r",
+											"pm.test(\"No error on JSON body\", function () { \r",
+											"    pm.response.to.not.be.error  \r",
+											"    pm.response.to.not.have.jsonBody(\"error\")\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-Id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseURL}}/{{taskId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"{{taskId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update a task",
+					"item": [
+						{
+							"name": "Update a task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {\r",
+											"    pm.response.to.have.status(204);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Empty body\", function () { \r",
+											"    pm.expect(pm.response.size.length==0)\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-Id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"Buy Cofee\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/{{taskId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"{{taskId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}				
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var codeR = pm.response.code",
+							"var rt = pm.response.responseTime",
+							"",
+							"/*",
+							"pm.test(\"Status code is Sucess\", function () {",
+							"    pm.response.to.be.success;",
+							"});*/",
+							"",
+							"pm.test(\"Status code check for No Client/Server errors 4xx/5xx\", function () {    ",
+							"    if ((codeR>=400) && (codeR<=499)){",
+							"        console.log(\"Client Error Response code:\",codeR)",
+							"        pm.expect(codeR).to.be.below(400)    ",
+							"    } else if ((codeR>=500) && (codeR<=599)){",
+							"        console.log(\"Server Error Response code:\",codeR)",
+							"        pm.expect(codeR).to.be.below(500)   ",
+							"    }",
+							"});",
+							"",
+							"pm.test(\"Response time is below 1000ms\", () => {",
+							"  console.log(\"Response time: \",rt,\"ms\")",
+							"  pm.expect(rt).to.be.below(1000)",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "930bcd5c46f9b6781ddcef429fca27be789c0361",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
